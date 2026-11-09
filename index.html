@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SehatKu - Panduan Pola Hidup Sehat Terpadu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-heart-pulse text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Sehat<span class="text-emerald-600">Ku</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#kalkulator" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Berat Badan Ideal</a>
+                    <a href="#pola-makan" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Pola Makan</a>
+                    <a href="#jadwal-latihan" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Jadwal Latihan</a>
+                    <a href="#jadwal-tidur" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">Jadwal Tidur</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <a href="#kalkulator" class="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">Berat Badan Ideal</a>
+            <a href="#pola-makan" class="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">Pola Makan</a>
+            <a href="#jadwal-latihan" class="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">Jadwal Latihan</a>
+            <a href="#jadwal-tidur" class="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">Jadwal Tidur</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 text-white py-16 sm:py-24">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-700/60 border border-emerald-500/30 text-emerald-100 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-sparkles text-emerald-300"></i> Gaya Hidup Seimbang
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Mulai Perjalanan <span class="text-emerald-300">Hidup Sehat</span> Anda Hari Ini
+                </h1>
+                <p class="text-lg sm:text-xl text-emerald-100/90 leading-relaxed mb-8">
+                    Kelola kesehatan tubuh secara menyeluruh melalui perhitungan berat badan ideal, pengaturan nutrisi harian, rutinitas olahraga terstruktur, dan kualitas tidur yang optimal.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#kalkulator" class="px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold shadow-lg shadow-emerald-950/30 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Cek Berat Ideal
+                    </a>
+                    <a href="#jadwal-latihan" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-semibold transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-dumbbell"></i> Lihat Jadwal Latihan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+
+        <!-- 1. KALKULATOR BERAT BADAN IDEAL -->
+        <section id="kalkulator" class="scroll-mt-24">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Analisis Tubuh</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">Pencari Berat Badan Ideal & BMI</h2>
+                <p class="text-slate-600 mt-2">Ketahui status indeks massa tubuh (IMT) serta target berat badan ideal Anda berdasarkan rumus Broca dan standar kesehatan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Form Input -->
+                <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <form id="bmi-form" class="space-y-5">
+                        <!-- Jenis Kelamin -->
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Jenis Kelamin</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="male" class="peer sr-only" checked>
+                                    <div class="p-3 rounded-xl border border-slate-200 text-center peer-checked:border-emerald-600 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 font-medium transition-all flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-mars"></i> Pria
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="female" class="peer sr-only">
+                                    <div class="p-3 rounded-xl border border-slate-200 text-center peer-checked:border-emerald-600 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 font-medium transition-all flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-venus"></i> Wanita
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Tinggi Badan -->
+                        <div>
+                            <label for="height" class="block text-sm font-semibold text-slate-700 mb-1.5">Tinggi Badan (cm)</label>
+                            <div class="relative">
+                                <input type="number" id="height" placeholder="Contoh: 170" min="100" max="250" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all">
+                                <span class="absolute right-4 top-3.5 text-slate-400 text-sm font-medium">cm</span>
+                            </div>
+                        </div>
+
+                        <!-- Berat Badan -->
+                        <div>
+                            <label for="weight" class="block text-sm font-semibold text-slate-700 mb-1.5">Berat Badan Saat Ini (kg)</label>
+                            <div class="relative">
+                                <input type="number" id="weight" placeholder="Contoh: 65" min="20" max="300" step="0.1" required
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all">
+                                <span class="absolute right-4 top-3.5 text-slate-400 text-sm font-medium">kg</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-md shadow-emerald-600/20 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i> Hitung Sekarang
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Hasil Perhitungan -->
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 min-h-[340px] flex flex-col justify-center">
+                    <div id="bmi-placeholder" class="text-center py-8">
+                        <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-weight-scale text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800">Hasil Analisis Anda</h3>
+                        <p class="text-slate-500 text-sm max-w-md mx-auto mt-1">Masukkan jenis kelamin, tinggi badan, dan berat badan Anda pada formulir di samping untuk melihat hasil perhitungan.</p>
+                    </div>
+
+                    <div id="bmi-result" class="hidden space-y-6">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                            <div>
+                                <p class="text-sm text-slate-500 font-medium">Skor BMI (IMT) Anda</p>
+                                <div class="flex items-baseline gap-3 mt-1">
+                                    <span id="bmi-score" class="text-4xl font-extrabold text-slate-900">22.5</span>
+                                    <span id="bmi-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Normal / Ideal</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 px-5 py-3.5 rounded-xl border border-slate-200/80">
+                                <p class="text-xs text-slate-500 font-medium">Target Berat Ideal (Broca)</p>
+                                <p id="ideal-weight" class="text-xl font-bold text-emerald-600 mt-0.5">63.0 kg</p>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar Visual BMI -->
+                        <div>
+                            <div class="flex justify-between text-xs font-medium text-slate-500 mb-2">
+                                <span>Kurus (&lt;18.5)</span>
+                                <span>Normal (18.5-24.9)</span>
+                                <span>Berlebih (25-29.9)</span>
+                                <span>Obesitas (&ge;30)</span>
+                            </div>
+                            <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden flex">
+                                <div class="w-1/4 bg-blue-400"></div>
+                                <div class="w-1/4 bg-emerald-500"></div>
+                                <div class="w-1/4 bg-amber-400"></div>
+                                <div class="w-1/4 bg-rose-500"></div>
+                            </div>
+                        </div>
+
+                        <!-- Saran Kesehatan -->
+                        <div class="bg-emerald-50/70 border border-emerald-100 p-4 rounded-xl">
+                            <h4 class="font-semibold text-emerald-900 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-emerald-600"></i> Rekomendasi Kesehatan:
+                            </h4>
+                            <p id="bmi-advice" class="text-sm text-emerald-800 mt-1.5 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. POLA MAKAN SEHAT -->
+        <section id="pola-makan" class="scroll-mt-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Nutrisi Seimbang</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-1">Panduan Pola Makan Harian</h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl">Pilih tujuan kesehatan Anda untuk melihat rekomendasi komposisi makanan dan jadwal makan harian yang tepat.</p>
+                </div>
+
+                <!-- Filter Tujuan -->
+                <div class="inline-flex bg-slate-200/70 p-1.5 rounded-xl self-start">
+                    <button onclick="setDietGoal('maintain')" id="btn-maintain" class="diet-tab px-4 py-2 rounded-lg text-sm font-semibold bg-white text-emerald-700 shadow-sm transition-all">Jaga Berat</button>
+                    <button onclick="setDietGoal('lose')" id="btn-lose" class="diet-tab px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 transition-all">Turunkan Berat</button>
+                    <button onclick="setDietGoal('gain')" id="btn-gain" class="diet-tab px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 transition-all">Massa Otot</button>
+                </div>
+            </div>
+
+            <!-- Grid Kartu Waktu Makan -->
+            <div id="diet-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Diisi melalui JavaScript -->
+            </div>
+
+            <!-- Prinsip Isi Piringku -->
+            <div class="mt-8 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-glass-water text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-900">Hidrasi & Prinsip "Isi Piringku"</h4>
+                        <p class="text-sm text-slate-600 mt-0.5">Konsumsi minimal 8 gelas (2 liter) air putih sehari. Pastikan 50% piring berisi sayur & buah, 25% karbohidrat kompleks, dan 25% protein.</p>
+                    </div>
+                </div>
+                <span class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold shrink-0">2.0L - 2.5L Air / Hari</span>
+            </div>
+        </section>
+
+        <!-- 3. JADWAL LATIHAN MINGGUAN -->
+        <section id="jadwal-latihan" class="scroll-mt-24">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Aktivitas Fisik</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-1">Jadwal Latihan Mingguan</h2>
+                <p class="text-slate-600 mt-2">Kombinasi latihan kardio, kekuatan otot, dan pemulihan untuk menjaga kebugaran tubuh sepanjang minggu. Tandai latihan yang sudah selesai!</p>
+            </div>
+
+            <!-- Hari Selector -->
+            <div class="flex overflow-x-auto pb-2 mb-6 gap-2 justify-start md:justify-center" id="day-selector">
+                <!-- Diisi oleh JS -->
+            </div>
+
+            <!-- Detail Latihan Harian -->
+            <div id="workout-detail" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
+                <!-- Diisi oleh JS -->
+            </div>
+        </section>
+
+        <!-- 4. JADWAL & KALKULATOR TIDUR IDEAL -->
+        <section id="jadwal-tidur" class="scroll-mt-24">
+            <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+                    <div class="lg:col-span-6 space-y-5">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-semibold">
+                            <i class="fa-solid fa-moon"></i> Siklus Tidur 90 Menit
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-bold leading-tight">Atur Jadwal Tidur & Bangun Segar</h2>
+                        <p class="text-slate-300 leading-relaxed">
+                            Tidur manusia bekerja dalam siklus 90 menit. Bangun di antara siklus tidur membuat tubuh terasa jauh lebih segar dibandingkan terbangun di tengah fase tidur nyenyak (deep sleep).
+                        </p>
+
+                        <!-- Input Waktu Bangun -->
+                        <div class="bg-slate-800/80 border border-slate-700 p-5 rounded-2xl space-y-4">
+                            <label for="wake-time" class="block text-sm font-medium text-slate-200">Jam berapa Anda ingin bangun pagi?</label>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <input type="time" id="wake-time" value="05:30"
+                                    class="px-4 py-3 rounded-xl bg-slate-900 border border-slate-600 text-white font-semibold focus:ring-2 focus:ring-indigo-500 outline-none">
+                                <button onclick="calculateSleep()" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-clock"></i> Hitung Jam Tidur
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hasil Rekomendasi Jam Tidur -->
+                    <div class="lg:col-span-6 bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 sm:p-8">
+                        <h3 class="text-lg font-bold text-white mb-2">Waktu Terbaik untuk Mulai Tidur:</h3>
+                        <p class="text-xs text-slate-400 mb-5">*Sudah termasuk rata-rata 15 menit waktu yang dibutuhkan untuk tertidur.</p>
+
+                        <div id="sleep-results" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Diisi oleh JS -->
+                        </div>
+
+                        <div class="mt-6 pt-5 border-t border-slate-700/80 flex items-start gap-3 text-xs text-slate-300">
+                            <i class="fa-solid fa-lightbulb text-amber-400 text-base mt-0.5"></i>
+                            <p><strong>Tips Tidur Berkualitas:</strong> Hindari layar gadget (sinar biru) 30–60 menit sebelum tidur dan kurangi konsumsi kafein setelah pukul 14.00 siang.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-20 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white">
+                    <i class="fa-solid fa-heart-pulse text-sm"></i>
+                </div>
+                <span class="font-bold text-lg text-slate-900">Sehat<span class="text-emerald-600">Ku</span></span>
+            </div>
+            <p class="text-sm text-slate-500 text-center sm:text-right">
+                &copy; 2026 SehatKu. Informasi bersifat edukatif dan bukan pengganti saran medis profesional.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Box (Pengganti alert) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-lg flex items-center gap-3 text-sm font-medium">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-message">Notifikasi</span>
+    </div>
+
+    <script>
+        // --- 1. MOBILE MENU TOGGLE ---
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tutup menu mobile saat link diklik
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // Fungsi Notifikasi Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // --- 2. KALKULATOR BERAT BADAN IDEAL & BMI ---
+        document.getElementById('bmi-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const heightCm = parseFloat(document.getElementById('height').value);
+            const weightKg = parseFloat(document.getElementById('weight').value);
+
+            if (!heightCm || !weightKg || heightCm <= 0 || weightKg <= 0) {
+                showToast('Mohon masukkan tinggi dan berat badan yang valid.');
+                return;
+            }
+
+            // Hitung BMI
+            const heightM = heightCm / 100;
+            const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+
+            // Hitung Berat Badan Ideal (Rumus Broca)
+            let idealWeight = 0;
+            if (gender === 'male') {
+                idealWeight = (heightCm - 100) - ((heightCm - 100) * 0.10);
+            } else {
+                idealWeight = (heightCm - 100) - ((heightCm - 100) * 0.15);
+            }
+            idealWeight = Math.max(30, idealWeight).toFixed(1);
+
+            // Tentukan Kategori & Saran
+            let category = '';
+            let badgeClass = '';
+            let advice = '';
+
+            if (bmi < 18.5) {
+                category = 'Berat Badan Kurang';
+                badgeClass = 'bg-blue-100 text-blue-800';
+                advice = `Berat badan Anda berada di bawah rentang normal. Tingkatkan asupan kalori harian dengan makanan padat nutrisi seperti protein (telur, ayam, ikan), karbohidrat kompleks, dan lemak sehat, serta lakukan latihan beban.`;
+            } else if (bmi >= 18.5 && bmi <= 24.9) {
+                category = 'Normal / Ideal';
+                badgeClass = 'bg-emerald-100 text-emerald-800';
+                advice = `Selamat! Berat badan Anda sudah ideal. Pertahankan pola makan gizi seimbang, rutin berolahraga minimal 150 menit per minggu, dan jaga kualitas tidur 7-8 jam sehari.`;
+            } else if (bmi >= 25 && bmi <= 29.9) {
+                category = 'Kelebihan Berat Badan';
+                badgeClass = 'bg-amber-100 text-amber-800';
+                advice = `Anda berada pada kategori berat badan berlebih. Disarankan melakukan defisit kalori ringan (300-500 kkal/hari), kurangi minuman manis/gorengan, dan tingkatkan aktivitas kardio seperti jalan cepat atau bersepeda.`;
+            } else {
+                category = 'Obesitas';
+                badgeClass = 'bg-rose-100 text-rose-800';
+                advice = `Risiko kesehatan meningkat pada kategori obesitas. Mulailah perubahan bertahap dengan mengatur porsi makan, memperbanyak serat dari sayuran, dan olahraga berdampak rendah (seperti jalan kaki atau berenang) secara rutin.`;
+            }
+
+            // Update UI
+            document.getElementById('bmi-placeholder').classList.add('hidden');
+            document.getElementById('bmi-result').classList.remove('hidden');
+            document.getElementById('bmi-score').textContent = bmi;
+            
+            const badge = document.getElementById('bmi-badge');
+            badge.textContent = category;
+            badge.className = `px-3 py-1 rounded-full text-xs font-bold ${badgeClass}`;
+            
+            document.getElementById('ideal-weight').textContent = `${idealWeight} kg`;
+            document.getElementById('bmi-advice').textContent = advice;
+            
+            showToast('Perhitungan berat badan ideal berhasil diperbarui!');
+        });
+
+        // --- 3. DATA & RENDER POLA MAKAN ---
+        const dietPlans = {
+            maintain: [
+                { time: '07:00 - 08:00', title: 'Sarapan Pagi', icon: 'fa-sun', color: 'text-amber-500 bg-amber-50', menu: '2 butir telur rebus/dadar, 2 lembar roti gandum utuh, alpukat, dan teh tawar hangat.', calories: '± 450 kkal' },
+                { time: '12:00 - 13:00', title: 'Makan Siang', icon: 'fa-bowl-rice', color: 'text-emerald-600 bg-emerald-50', menu: '1 porsi nasi merah/putih (150g), dada ayam panggang/ikan bakar, tumis brokoli & wortel.', calories: '± 600 kkal' },
+                { time: '16:00 - 16:30', title: 'Camilan Sore', icon: 'fa-apple-whole', color: 'text-rose-500 bg-rose-50', menu: '1 buah apel atau pisang, segenggam kacang almond panggang tanpa garam.', calories: '± 200 kkal' },
+                { time: '18:30 - 19:30', title: 'Makan Malam', icon: 'fa-utensils', color: 'text-indigo-600 bg-indigo-50', menu: 'Sup bening sayur dengan tahu/tempe, ikan kukus, dan porsi karbohidrat lebih sedikit.', calories: '± 450 kkal' }
+            ],
+            lose: [
+                { time: '07:30 - 08:30', title: 'Sarapan Tinggi Serat', icon: 'fa-sun', color: 'text-amber-500 bg-amber-50', menu: 'Oatmeal dimasak dengan air/susu rendah lemak, potongan buah beri/pisang, dan 1 telur rebus.', calories: '± 350 kkal' },
+                { time: '12:30 - 13:30', title: 'Makan Siang Seimbang', icon: 'fa-bowl-rice', color: 'text-emerald-600 bg-emerald-50', menu: 'Nasi merah (100g), pepes ikan/dada ayam rebus tanpa kulit, dan lalapan/sayur rebus 1 mangkuk penuh.', calories: '± 450 kkal' },
+                { time: '16:00', title: 'Camilan Rendah Kalori', icon: 'fa-apple-whole', color: 'text-rose-500 bg-rose-50', menu: '1 potong pepaya/semangka atau yogurt plain rendah lemak.', calories: '± 120 kkal' },
+                { time: '18:30', title: 'Makan Malam Ringan', icon: 'fa-utensils', color: 'text-indigo-600 bg-indigo-50', menu: 'Salad sayur dengan potongan dada ayam panggang atau sup tahu sayur tanpa nasi.', calories: '± 330 kkal' }
+            ],
+            gain: [
+                { time: '07:00', title: 'Sarapan Padat Energi', icon: 'fa-sun', color: 'text-amber-500 bg-amber-50', menu: '3 butir telur orak-arik, 3 lembar roti gandum, selai kacang, dan segelas susu full cream.', calories: '± 650 kkal' },
+                { time: '12:30', title: 'Makan Siang Tinggi Protein', icon: 'fa-bowl-rice', color: 'text-emerald-600 bg-emerald-50', menu: 'Nasi putih/merah (200g), daging sapi tanpa lemak/dada ayam (150g), tempe goreng air-fryer, sayur bayam.', calories: '± 800 kkal' },
+                { time: '16:00', title: 'Camilan Pra-Latihan', icon: 'fa-apple-whole', color: 'text-rose-500 bg-rose-50', menu: 'Smoothie pisang dengan susu, selai kacang, dan gandum (oats).', calories: '± 400 kkal' },
+                { time: '19:30', title: 'Makan Malam Pemulihan', icon: 'fa-utensils', color: 'text-indigo-600 bg-indigo-50', menu: 'Kentang panggang atau nasi (150g), ikan salmon/tongkol bakar, dan tumis buncis.', calories: '± 650 kkal' }
+            ]
+        };
+
+        function setDietGoal(goal) {
+            // Update tampilan tombol tab
+            document.querySelectorAll('.diet-tab').forEach(btn => {
+                btn.className = 'diet-tab px-4 py-2 rounded-lg text-sm font-semibold text-slate-600 hover:text-slate-900 transition-all';
+            });
+            document.getElementById(`btn-${goal}`).className = 'diet-tab px-4 py-2 rounded-lg text-sm font-semibold bg-white text-emerald-700 shadow-sm transition-all';
+
+            // Render kartu menu
+            const container = document.getElementById('diet-cards');
+            container.innerHTML = dietPlans[goal].map(item => `
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-10 h-10 rounded-xl ${item.color} flex items-center justify-center">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">${item.time}</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-900 mb-2">${item.title}</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">${item.menu}</p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-400 font-medium">Estimasi Energi</span>
+                        <span class="text-xs font-bold text-emerald-600">${item.calories}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 4. DATA & RENDER JADWAL LATIHAN ---
+        const weeklyWorkouts = [
+            {
+                day: 'Senin',
+                focus: 'Kekuatan Tubuh Bagian Atas (Upper Body)',
+                duration: '40 Menit',
+                level: 'Pemula - Menengah',
+                exercises: [
+                    { name: 'Pemanasan Dinamis (Putar bahu, arm circles)', sets: '5 Menit' },
+                    { name: 'Push-Up (atau Knee Push-Up)', sets: '3 Set x 10-12 Repetisi' },
+                    { name: 'Dumbbell Row / Tarikan Beban Ringan', sets: '3 Set x 12 Repetisi' },
+                    { name: 'Shoulder Press (Angkat beban ke atas)', sets: '3 Set x 10 Repetisi' },
+                    { name: 'Plank Tahan Posisi', sets: '3 Set x 30-45 Detik' }
+                ]
+            },
+            {
+                day: 'Selasa',
+                focus: 'Kardio & Stamina Jantung',
+                duration: '35 Menit',
+                level: 'Semua Level',
+                exercises: [
+                    { name: 'Jalan Cepat / Jogging Santai', sets: '25 Menit' },
+                    { name: 'Jumping Jacks', sets: '3 Set x 30 Detik' },
+                    { name: 'High Knees (Lari di tempat angkat lutut)', sets: '3 Set x 30 Detik' },
+                    { name: 'Pendinginan & Peregangan Kaki', sets: '5 Menit' }
+                ]
+            },
+            {
+                day: 'Rabu',
+                focus: 'Kekuatan Tubuh Bagian Bawah (Lower Body)',
+                duration: '40 Menit',
+                level: 'Pemula - Menengah',
+                exercises: [
+                    { name: 'Pemanasan Kaki & Pinggul', sets: '5 Menit' },
+                    { name: 'Bodyweight Squat', sets: '4 Set x 15 Repetisi' },
+                    { name: 'Lunges (Langkah maju bergantian)', sets: '3 Set x 10 Repetisi / kaki' },
+                    { name: 'Glute Bridge (Angkat pinggul berbaring)', sets: '3 Set x 15 Repetisi' },
+                    { name: 'Calf Raises (Jinjit tahan 2 detik)', sets: '3 Set x 20 Repetisi' }
+                ]
+            },
+            {
+                day: 'Kamis',
+                focus: 'Istirahat Aktif & Fleksibilitas',
+                duration: '25 Menit',
+                level: 'Ringan',
+                exercises: [
+                    { name: 'Jalan Kaki Santai di Luar Ruangan', sets: '15 Menit' },
+                    { name: 'Yoga / Peregangan Seluruh Tubuh (Cat-Cow, Child Pose)', sets: '10 Menit' }
+                ]
+            },
+            {
+                day: 'Jumat',
+                focus: 'Latihan Seluruh Tubuh (Full Body HIIT)',
+                duration: '30 Menit',
+                level: 'Menengah',
+                exercises: [
+                    { name: 'Pemanasan Kardio Ringan', sets: '5 Menit' },
+                    { name: 'Squat to Overhead Reach', sets: '3 Set x 12 Repetisi' },
+                    { name: 'Mountain Climbers', sets: '3 Set x 30 Detik' },
+                    { name: 'Incline Push-Up', sets: '3 Set x 12 Repetisi' },
+                    { name: 'Russian Twist (Otot Perut)', sets: '3 Set x 20 Repetisi' }
+                ]
+            },
+            {
+                day: 'Sabtu',
+                focus: 'Olahraga Rekreasi / Kardio Luar Ruang',
+                duration: '45 - 60 Menit',
+                level: 'Menyenangkan',
+                exercises: [
+                    { name: 'Bersepeda, Berenang, Badminton, atau Jalan Sehat', sets: '45 - 60 Menit' },
+                    { name: 'Peregangan Statis Setelah Latihan', sets: '10 Menit' }
+                ]
+            },
+            {
+                day: 'Minggu',
+                focus: 'Istirahat Total & Pemulihan Otot',
+                duration: 'Istirahat',
+                level: 'Pemulihan',
+                exercises: [
+                    { name: 'Fokus pada hidrasi yang cukup dan nutrisi bergizi', sets: 'Sepanjang Hari' },
+                    { name: 'Tidur berkualitas 7-8 jam untuk regenerasi sel otot', sets: 'Malam Hari' }
+                ]
+            }
+        ];
+
+        let selectedDayIndex = 0;
+        let completedExercises = {};
+
+        function renderWorkouts() {
+            const selector = document.getElementById('day-selector');
+            selector.innerHTML = weeklyWorkouts.map((w, idx) => `
+                <button onclick="selectDay(${idx})" class="px-5 py-2.5 rounded-xl font-semibold text-sm whitespace-nowrap transition-all ${idx === selectedDayIndex ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}">
+                    ${w.day}
+                </button>
+            `).join('');
+
+            const current = weeklyWorkouts[selectedDayIndex];
+            const detail = document.getElementById('workout-detail');
+            
+            detail.innerHTML = `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">${current.day}</span>
+                        <h3 class="text-2xl font-bold text-slate-900 mt-1">${current.focus}</h3>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold flex items-center gap-1.5">
+                            <i class="fa-regular fa-clock text-emerald-600"></i> ${current.duration}
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-xl bg-emerald-50 text-emerald-700 text-xs font-semibold flex items-center gap-1.5">
+                            <i class="fa-solid fa-signal"></i> ${current.level}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                    ${current.exercises.map((ex, exIdx) => {
+                        const key = `${selectedDayIndex}-${exIdx}`;
+                        const isDone = !!completedExercises[key];
+                        return `
+                        <div onclick="toggleExercise('${key}')" class="cursor-pointer p-4 rounded-xl border transition-all flex items-center justify-between gap-4 ${isDone ? 'bg-emerald-50/60 border-emerald-200' : 'bg-slate-50/50 border-slate-200/80 hover:border-emerald-300'}">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-6 h-6 rounded-lg flex items-center justify-center border transition-colors ${isDone ? 'bg-emerald-600 border-emerald-600 text-white' : 'bg-white border-slate-300'}">
+                                    ${isDone ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                                </div>
+                                <span class="font-medium ${isDone ? 'line-through text-slate-400' : 'text-slate-800'}">${ex.name}</span>
+                            </div>
+                            <span class="text-xs font-bold px-3 py-1 rounded-lg bg-white border border-slate-200 text-slate-600 shrink-0">${ex.sets}</span>
+                        </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function selectDay(index) {
+            selectedDayIndex = index;
+            renderWorkouts();
+        }
+
+        function toggleExercise(key) {
+            completedExercises[key] = !completedExercises[key];
+            renderWorkouts();
+            if (completedExercises[key]) {
+                showToast('Gerakan latihan ditandai selesai!');
+            }
+        }
+
+        // --- 5. KALKULATOR JADWAL TIDUR ---
+        function calculateSleep() {
+            const wakeInput = document.getElementById('wake-time').value;
+            if (!wakeInput) return;
+
+            const [hours, minutes] = wakeInput.split(':').map(Number);
+            const wakeDate = new Date();
+            wakeDate.setHours(hours, minutes, 0, 0);
+
+            // Siklus tidur: 6 siklus (9 jam), 5 siklus (7.5 jam - optimal), 4 siklus (6 jam)
+            const cycles = [
+                { count: 6, hours: '9 Jam', label: 'Tidur Maksimal', recommended: false },
+                { count: 5, hours: '7.5 Jam', label: 'Sangat Disarankan', recommended: true },
+                { count: 4, hours: '6 Jam', label: 'Cukup / Minimal', recommended: false },
+                { count: 3, hours: '4.5 Jam', label: 'Tidur Singkat', recommended: false }
+            ];
+
+            const resultsContainer = document.getElementById('sleep-results');
+            resultsContainer.innerHTML = cycles.map(c => {
+                // Kurangi (jumlah siklus * 90 menit) + 15 menit waktu tertidur
+                const totalMinutesBack = (c.count * 90) + 15;
+                const sleepTime = new Date(wakeDate.getTime() - totalMinutesBack * 60000);
+                
+                const formattedHour = String(sleepTime.getHours()).padStart(2, '0');
+                const formattedMin = String(sleepTime.getMinutes()).padStart(2, '0');
+
+                return `
+                    <div class="p-4 rounded-xl border ${c.recommended ? 'bg-indigo-600/30 border-indigo-400' : 'bg-slate-900/70 border-slate-700'} flex flex-col justify-between">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-2xl font-extrabold text-white">${formattedHour}:${formattedMin}</span>
+                            ${c.recommended ? '<span class="px-2 py-0.5 rounded-md bg-emerald-500 text-slate-950 text-[10px] font-bold uppercase">Optimal</span>' : ''}
+                        </div>
+                        <p class="text-xs text-slate-300 font-medium">${c.hours} (${c.count} Siklus) • ${c.label}</p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Inisialisasi tampilan awal saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            setDietGoal('maintain');
+            renderWorkouts();
+            calculateSleep();
+        });
+    </script>
+</body>
+</html>
